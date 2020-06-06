@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="iunsuccessful.demo.kotlin.dao.ArticleDao">
+    <resultMap id="BaseResultMap" type="iunsuccessful.demo.kotlin.entity.Article">
+        <id column="ID" jdbcType="BIGINT" property="id" />
+        <result column="order_no" jdbcType="VARCHAR" property="orderNo"/>
+        <result column="buyer_nick" jdbcType="VARCHAR" property="title"/>
+    </resultMap>
+
+    <!-- 基本列 -->
+    <sql id="Base_Column_List">
+        ID, order_no, buyer_nick
+    </sql>
+
+    <!-- 单个查询 -->
+    <select id="getById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from add_gift
+        where id = #{id}
+    </select>
+
+</mapper>
